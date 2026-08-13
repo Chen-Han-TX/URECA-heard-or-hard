@@ -1,4 +1,5 @@
 from pathlib import Path
+import sys
 import json
 from normalize import normalize_text 
 
@@ -6,9 +7,25 @@ from faster_whisper import WhisperModel
 from jiwer import wer
 
 
+if len(sys.argv) != 2:
+    sys.exit(
+        "Usage: python src/run_asr.py "
+        "<clean|noisy|hard>"
+    )
+
+condition = sys.argv[1]
+
+if condition not in {"clean", "noisy", "hard"}:
+    sys.exit(
+        "Condition must be one of: "
+        "clean, noisy, hard"
+    )
+
+audio_dir = Path("data/audio") / condition
+output = Path("runs") / f"asr_{condition}.jsonl"
 QUESTIONS = Path("data/questions.jsonl")
-AUDIO_DIR = Path("data/audio/clean")
-OUTPUT = Path("runs/asr_clean.jsonl")
+
+
 
 
 def load_questions():
@@ -38,7 +55,7 @@ def main():
         compute_type="int8",
     )
 
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    output.parent.mkdir(parents=True, exist_ok=True)
 
     results = []
 
@@ -46,7 +63,7 @@ def main():
         question_id = question["id"]
         reference = question["text"]
 
-        audio_path = AUDIO_DIR / f"{question_id}.wav"
+        audio_path = audio_dir / f"{question_id}.wav"
 
         if not audio_path.exists():
             print(f"[SKIP] Missing {audio_path}")
@@ -98,7 +115,7 @@ def main():
         result = {
             "id": question_id,
             "category": question["category"],
-            "condition": "clean",
+            "condition": condition,
 
             "reference": reference,
             "transcript": transcript,
@@ -126,14 +143,14 @@ def main():
         if avg_logprob is not None:
             print(f"Logprob   : {avg_logprob:.3f}")
 
-    with OUTPUT.open("w", encoding="utf-8") as f:
+    with output.open("w", encoding="utf-8") as f:
         for result in results:
             f.write(json.dumps(result) + "\n")
 
     print()
     print("============================")
     print(f"Saved {len(results)} results")
-    print(f"Output: {OUTPUT}")
+    print(f"Output: {output}")
     print("============================")
 
 
