@@ -23,23 +23,30 @@ def build_prompt(transcript: str) -> str:
     return f"""
 You are answering a short question transcribed from speech.
 
+Use ONLY the information contained in the transcribed question.
+
+Important:
+- If the question already contains the requested code, number, date,
+  room number, flight number, or amount, return that value directly.
+- Do not look up external information.
+- For arithmetic or reasoning questions, compute the answer.
+- Return the shortest answer that directly answers the question.
+
 Question:
 {transcript}
 
-Return ONLY valid JSON in exactly this format:
+Return ONLY valid JSON:
 
 {{
-  "answer": "your short final answer",
+  "answer": "short final answer",
   "confidence": 0
 }}
 
 Rules:
-- Keep the answer as short as possible.
+- Do not explain.
 - confidence must be an integer from 0 to 100.
-- Do not explain your reasoning.
 - Do not include markdown.
 """.strip()
-
 
 def parse_response(text: str) -> dict:
     cleaned = text.strip()
