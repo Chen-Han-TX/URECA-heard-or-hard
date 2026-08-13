@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+from normalize import normalize_text 
 
 from faster_whisper import WhisperModel
 from jiwer import wer
@@ -80,28 +81,47 @@ def main():
                 segment.no_speech_prob
                 for segment in segments
             )
-
-        word_error_rate = wer(
+            
+        raw_wer = wer(
             reference.lower(),
             transcript.lower(),
         )
 
+        normalized_reference = normalize_text(reference)
+        normalized_transcript = normalize_text(transcript)
+
+        normalized_wer = wer(
+            normalized_reference,
+            normalized_transcript,
+        )
+        
         result = {
             "id": question_id,
             "category": question["category"],
             "condition": "clean",
+
             "reference": reference,
             "transcript": transcript,
-            "wer": word_error_rate,
+
+            "normalized_reference": normalized_reference,
+            "normalized_transcript": normalized_transcript,
+
+            "raw_wer": raw_wer,
+            "normalized_wer": normalized_wer,
+
             "avg_logprob": avg_logprob,
             "no_speech_prob": no_speech_prob,
         }
 
         results.append(result)
-
         print(f"Reference : {reference}")
         print(f"Transcript: {transcript}")
-        print(f"WER       : {word_error_rate:.3f}")
+
+        print(f"Norm ref  : {normalized_reference}")
+        print(f"Norm pred : {normalized_transcript}")
+
+        print(f"Raw WER   : {raw_wer:.3f}")
+        print(f"Norm WER  : {normalized_wer:.3f}")
 
         if avg_logprob is not None:
             print(f"Logprob   : {avg_logprob:.3f}")
