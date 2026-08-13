@@ -21,6 +21,59 @@ CONDITIONS = {"clean", "noisy", "hard"}
 
 def build_prompt(transcript: str) -> str:
     return f"""
+You are given a short question transcribed from speech.
+
+Your job is to do ONE of two things:
+
+1. EXTRACTION:
+   If the requested value is already explicitly stated in the question
+   (for example a confirmation code, room number, flight number, date,
+   or amount), return that exact value.
+
+2. REASONING:
+   If the answer must be computed from the information in the question,
+   compute the answer.
+
+Examples:
+
+Question:
+What is the confirmation code K7M42?
+
+Answer:
+K7M42
+
+Question:
+What room number did they give you, 426?
+
+Answer:
+426
+
+Question:
+If you have 12 apples and give away 5, how many remain?
+
+Answer:
+7
+
+Now answer this question:
+
+{transcript}
+
+Return ONLY valid JSON:
+
+{{
+  "answer": "short final answer",
+  "confidence": 0
+}}
+
+Rules:
+- Use only information in the transcribed question.
+- Do not explain.
+- Do not look up external information.
+- Return the shortest possible answer.
+- confidence must be an integer from 0 to 100.
+- Do not include markdown.
+""".strip()
+    return f"""
 You are answering a short question transcribed from speech.
 
 Use ONLY the information contained in the transcribed question.

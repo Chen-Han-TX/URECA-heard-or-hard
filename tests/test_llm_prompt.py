@@ -14,9 +14,12 @@ def main():
         "What is the confirmation code K7M42?"
     )
 
-    assert "Use ONLY the information" in prompt
+    assert "EXTRACTION" in prompt
+    assert "REASONING" in prompt
+    assert "What is the confirmation code K7M42?" in prompt
+    assert "K7M42" in prompt
     assert "Do not look up external information" in prompt
-    assert "return that value directly" in prompt
+    assert "Return the shortest possible answer" in prompt
 
     print("All LLM prompt tests passed.")
 
