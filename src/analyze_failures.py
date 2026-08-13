@@ -6,7 +6,7 @@ CONDITIONS = ["clean", "noisy", "hard"]
 
 
 def classify(row):
-    asr_failed = row["semantic_asr_failure"]
+    asr_failed = row["task_critical_asr_failure"]
     correct = row["correct"]
 
     if not asr_failed and correct:
