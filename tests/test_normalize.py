@@ -115,6 +115,22 @@ def main():
         "If the meeting starts at 4.50 and lasts 30 minutes",
         "if the meeting starts at 4:50 and lasts 30 minutes",
     )
+    
+    
+    check(
+    "What time is the meeting 450",
+    "what time is the meeting 4:50",
+    )
+
+    check(
+        "The meeting starts at 415",
+        "the meeting starts at 4:15",
+    )
+    
+    check(
+    "The price is 450",
+    "the price is 450",
+)
     print("All normalization tests passed.")
 
 

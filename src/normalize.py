@@ -70,15 +70,39 @@ def normalize_numeric_times(text: str) -> str:
         "meeting",
     )
 
-    if any(cue in text for cue in time_cues):
-        text = re.sub(
-            r"\b(\d{1,2})\.(\d{2})\b",
-            r"\1:\2",
-            text,
-        )
+    if not any(cue in text for cue in time_cues):
+        return text
+
+    # 4.50 -> 4:50
+    text = re.sub(
+        r"\b(\d{1,2})\.(\d{2})\b",
+        r"\1:\2",
+        text,
+    )
+
+    # 450 -> 4:50, 415 -> 4:15
+    def replace_compact_time(match):
+        value = match.group(1)
+
+        if len(value) == 3:
+            hour = value[0]
+            minute = value[1:]
+            return f"{hour}:{minute}"
+
+        if len(value) == 4:
+            hour = value[:2]
+            minute = value[2:]
+            return f"{hour}:{minute}"
+
+        return value
+
+    text = re.sub(
+        r"\b(\d{3,4})\b",
+        replace_compact_time,
+        text,
+    )
 
     return text
-
 
 def words_to_number(phrase: str):
     """
