@@ -4,9 +4,45 @@
 {"id":"e004","category":"entity","text":"What is the flight number SQ218?","gold":"SQ218"}
 {"id":"e005","category":"entity","text":"How many dollars should I transfer, twenty seven dollars and fifty cents?","gold":"27.50"}
 {"id":"e006","category":"entity","text":"What room number did they give you, four hundred and twenty six?","gold":"426"}
+{"id":"e007","category":"entity","text":"What number did she say, fifteen?","gold":"15"}
+{"id":"e008","category":"entity","text":"What number did he say, fifty?","gold":"50"}
+{"id":"e009","category":"entity","text":"What number is on the ticket, thirteen?","gold":"13"}
+{"id":"e010","category":"entity","text":"What number is on the receipt, thirty?","gold":"30"}
+{"id":"e011","category":"entity","text":"What quantity did they request, sixteen?","gold":"16"}
+{"id":"e012","category":"entity","text":"What quantity did they request, sixty?","gold":"60"}
+{"id":"e013","category":"entity","text":"What room number is printed on the key card, four hundred and sixty two?","gold":"462"}
+{"id":"e014","category":"entity","text":"What flight number is shown on the booking, SQ280?","gold":"SQ280"}
+{"id":"e015","category":"entity","text":"What is the access code K7N42?","gold":"K7N42"}
+{"id":"e016","category":"entity","text":"What is the reference code B9D31?","gold":"B9D31"}
+{"id":"e017","category":"entity","text":"What is the verification code M6N24?","gold":"M6N24"}
+{"id":"e018","category":"entity","text":"What amount is shown, fourteen dollars and seventeen cents?","gold":"14.17"}
+{"id":"e019","category":"entity","text":"What amount should I pay, twenty five dollars and seventy cents?","gold":"25.70"}
+{"id":"e020","category":"entity","text":"What date did they choose, March thirteenth?","gold":"March thirteenth"}
+{"id":"e021","category":"entity","text":"What date did they choose, March thirtieth?","gold":"March thirtieth"}
+{"id":"e022","category":"entity","text":"What time is the meeting, four fifteen?","gold":"4:15"}
+{"id":"e023","category":"entity","text":"What time is the meeting, four fifty?","gold":"4:50"}
+{"id":"e024","category":"entity","text":"What platform number did they announce, fourteen?","gold":"14"}
 {"id":"r001","category":"reason","text":"If Tuesday is the third, what day is the seventeenth?","gold":"Tuesday"}
 {"id":"r002","category":"reason","text":"If a train leaves at two and arrives three hours later, when does it arrive?","gold":"five"}
 {"id":"r003","category":"reason","text":"If you have twelve apples and give away five, how many remain?","gold":"seven"}
 {"id":"r004","category":"reason","text":"If one notebook costs four dollars, how much do three cost?","gold":"12"}
 {"id":"r005","category":"reason","text":"If today is Monday, what day will it be three days later?","gold":"Thursday"}
 {"id":"r006","category":"reason","text":"If a box has four rows of six items, how many items are there?","gold":"24"}
+{"id":"r007","category":"reason","text":"If you have fifteen tickets and use five, how many remain?","gold":"10"}
+{"id":"r008","category":"reason","text":"If you have fifty tickets and use five, how many remain?","gold":"45"}
+{"id":"r009","category":"reason","text":"If thirteen people are waiting and three leave, how many remain?","gold":"10"}
+{"id":"r010","category":"reason","text":"If thirty people are waiting and three leave, how many remain?","gold":"27"}
+{"id":"r011","category":"reason","text":"If sixteen boxes each contain two items, how many items are there?","gold":"32"}
+{"id":"r012","category":"reason","text":"If sixty boxes each contain two items, how many items are there?","gold":"120"}
+{"id":"r013","category":"reason","text":"If room four hundred and twenty six is two rooms before your room, what is your room number?","gold":"428"}
+{"id":"r014","category":"reason","text":"If room four hundred and sixty two is three rooms after your room, what is your room number?","gold":"459"}
+{"id":"r015","category":"reason","text":"If a ticket costs fourteen dollars and seventeen cents and you buy two, what is the total?","gold":"28.34"}
+{"id":"r016","category":"reason","text":"If a ticket costs fourteen dollars and seventy cents and you buy two, what is the total?","gold":"29.40"}
+{"id":"r017","category":"reason","text":"If the meeting starts at four fifteen and lasts thirty minutes, when does it end?","gold":"4:45"}
+{"id":"r018","category":"reason","text":"If the meeting starts at four fifty and lasts thirty minutes, when does it end?","gold":"5:20"}
+{"id":"r019","category":"reason","text":"If March thirteenth is a Monday, what day is March twentieth?","gold":"Monday"}
+{"id":"r020","category":"reason","text":"If March thirtieth is a Thursday, what day is April sixth?","gold":"Thursday"}
+{"id":"r021","category":"reason","text":"If flight SQ218 leaves two hours before SQ280, and SQ280 leaves at six, when does SQ218 leave?","gold":"four"}
+{"id":"r022","category":"reason","text":"If you transfer twenty seven dollars and fifty cents twice, how much do you transfer in total?","gold":"55.00"}
+{"id":"r023","category":"reason","text":"If you have twenty five dollars and seventy cents and spend ten dollars, how much remains?","gold":"15.70"}
+{"id":"r024","category":"reason","text":"If platform fourteen is three platforms after your platform, what is your platform number?","gold":"11"}
