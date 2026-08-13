@@ -1,9 +1,9 @@
-{"id":"e003","condition":"noisy","semantic_asr_failure":false,"reason":"date changed to day but appointment date October 17 was preserved"}
-{"id":"e006","condition":"noisy","semantic_asr_failure":true,"reason":"room changed to ring, altering the user intent"}
-{"id":"r001","condition":"noisy","semantic_asr_failure":true,"reason":"critical numeric condition changed from 3 to 1"}
-{"id":"r002","condition":"noisy","semantic_asr_failure":false,"reason":"article changed from a to the with no meaningful effect"}
-{"id":"r003","condition":"noisy","semantic_asr_failure":false,"reason":"remain changed to remains with no semantic effect"}
-{"id":"r006","condition":"noisy","semantic_asr_failure":false,"reason":"article changed from a to the with no semantic effect"}
-{"id":"r001","condition":"hard","semantic_asr_failure":false,"reason":"if changed to it but the reasoning condition remains recoverable"}
-{"id":"r002","condition":"hard","semantic_asr_failure":true,"reason":"at 2 changed to the 2, corrupting the departure-time expression"}
-{"id":"r004","condition":"hard","semantic_asr_failure":false,"reason":"if changed to is but the intended arithmetic question remains recoverable"}
+{"id":"e003","condition":"noisy","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"date changed to day but October 17 was preserved"}
+{"id":"e006","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"room changed to ring but the requested value 426 was preserved"}
+{"id":"r001","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"critical numeric condition changed from 3 to 1, changing the correct answer"}
+{"id":"r002","condition":"noisy","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"article substitution did not change the task"}
+{"id":"r003","condition":"noisy","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"grammatical variation did not change the task"}
+{"id":"r006","condition":"noisy","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"article substitution did not change the task"}
+{"id":"r001","condition":"hard","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"if changed to it but critical information remained recoverable"}
+{"id":"r002","condition":"hard","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"departure-time phrasing was degraded but critical values 2 and 3 hours were preserved"}
+{"id":"r004","condition":"hard","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"if changed to is but the arithmetic task remained clear"}
