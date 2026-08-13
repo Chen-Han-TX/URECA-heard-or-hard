@@ -59,6 +59,7 @@ ORDINAL_WORDS = {
     "eighteenth": "18",
     "nineteenth": "19",
     "twentieth": "20",
+    "thirtieth": "30",
 }
 
 
@@ -75,6 +76,46 @@ def words_to_number(phrase: str):
     except ValueError:
         return None
 
+
+def normalize_time_phrases(text: str) -> str:
+    number_words = {
+        "one": 1,
+        "two": 2,
+        "three": 3,
+        "four": 4,
+        "five": 5,
+        "six": 6,
+        "seven": 7,
+        "eight": 8,
+        "nine": 9,
+        "ten": 10,
+        "eleven": 11,
+        "twelve": 12,
+    }
+
+    minute_words = {
+        "ten": 10,
+        "fifteen": 15,
+        "twenty": 20,
+        "thirty": 30,
+        "forty": 40,
+        "fifty": 50,
+    }
+
+    pattern = re.compile(
+        r"\b("
+        + "|".join(number_words.keys())
+        + r")\s+("
+        + "|".join(minute_words.keys())
+        + r")\b"
+    )
+
+    def replace(match):
+        hour = number_words[match.group(1)]
+        minute = minute_words[match.group(2)]
+        return f"{hour}:{minute:02d}"
+
+    return pattern.sub(replace, text)
 
 def normalize_money_phrases(text: str) -> str:
     """
@@ -290,10 +331,8 @@ def normalize_text(text: str) -> str:
     text = re.sub(r"(?<!\d)\.", " ", text)
     text = re.sub(r"\.(?!\d)", " ", text)
 
-    # Money must be normalized before generic numbers.
     text = normalize_money_phrases(text)
-
-    # Remaining number phrases.
+    text = normalize_time_phrases(text)
     text = normalize_number_phrases(text)
 
     # Collapse whitespace.

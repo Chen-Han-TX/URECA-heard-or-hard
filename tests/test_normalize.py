@@ -85,6 +85,26 @@ def main():
         "How many dollars should I transfer, 27 dollars and 50 cents?",
         "how many dollars should i transfer 27.50",
     )
+    
+    check(
+    "What time is the meeting, four fifteen?",
+    "what time is the meeting 4:15",
+)
+
+    check(
+        "What time is the meeting, four fifty?",
+        "what time is the meeting 4:50",
+    )
+
+    check(
+        "If the meeting starts at four fifteen and lasts thirty minutes",
+        "if the meeting starts at 4:15 and lasts 30 minutes",
+    )
+
+    check(
+        "March thirtieth",
+        "march 30",
+    )
     print("All normalization tests passed.")
 
 
