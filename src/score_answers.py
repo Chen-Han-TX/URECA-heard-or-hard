@@ -7,19 +7,39 @@ from normalize import normalize_text
 
 
 def normalize_answer(text: str) -> str:
-    text = normalize_text(text)
+    text = text.lower().strip()
+
+    # Remove common punctuation/formatting differences.
+    text = text.replace("$", "")
+
+    # Normalize explicit clock forms.
+    # 4.45 -> 4:45
+    if re.fullmatch(r"\d{1,2}\.\d{2}", text):
+        hour, minute = text.split(".")
+        text = f"{int(hour)}:{minute}"
+
+    # 4:00 PM -> 4
+    match = re.fullmatch(
+        r"(\d{1,2}):00\s*(am|pm)?",
+        text,
+    )
+
+    if match:
+        text = str(int(match.group(1)))
 
     # Remove units that should not affect correctness.
     text = re.sub(
-        r"\b(items?|dollars?|dollar|pm|am)\b",
+        r"\b(items?|dollars?|dollar)\b",
         "",
         text,
     )
 
     text = re.sub(r"\s+", " ", text).strip()
 
-    return text
+    # Reuse general text/number normalization.
+    text = normalize_text(text)
 
+    return text
 
 def is_correct(prediction: str, gold: str) -> bool:
     pred = normalize_answer(prediction)

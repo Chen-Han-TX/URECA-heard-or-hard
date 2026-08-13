@@ -20,6 +20,13 @@ def main():
 
     assert not is_correct("14.20", "14.70")
     assert not is_correct("Tuesday", "Thursday")
+    
+    assert is_correct("4.45", "4:45")
+    assert is_correct("4:00 PM", "four")
+    assert is_correct("4:00", "4")
+    assert is_correct("5:00", "five")
+    
+    assert not is_correct("4:30", "four")
 
     print("All answer scorer tests passed.")
 
