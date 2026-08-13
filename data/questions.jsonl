@@ -1,0 +1,13 @@
+{"id":"e001","category":"entity","text":"What is the total if I buy three items at four dollars ninety each?","gold":"14.70"}
+{"id":"e002","category":"entity","text":"What is the confirmation code K7M42?","gold":"K7M42"}
+{"id":"e003","category":"entity","text":"What date is the appointment on October seventeenth?","gold":"October seventeenth"}
+{"id":"e004","category":"entity","text":"What is the flight number SQ218?","gold":"SQ218"}
+{"id":"e005","category":"entity","text":"How many dollars should I transfer, twenty seven dollars and fifty cents?","gold":"27.50"}
+{"id":"e006","category":"entity","text":"What room number did they give you, four hundred and twenty six?","gold":"426"}
+
+{"id":"r001","category":"reason","text":"If Tuesday is the third, what day is the seventeenth?","gold":"Tuesday"}
+{"id":"r002","category":"reason","text":"If a train leaves at two and arrives three hours later, when does it arrive?","gold":"five"}
+{"id":"r003","category":"reason","text":"If you have twelve apples and give away five, how many remain?","gold":"seven"}
+{"id":"r004","category":"reason","text":"If one notebook costs four dollars, how much do three cost?","gold":"12"}
+{"id":"r005","category":"reason","text":"If today is Monday, what day will it be three days later?","gold":"Thursday"}
+{"id":"r006","category":"reason","text":"If a box has four rows of six items, how many items are there?","gold":"24"}
