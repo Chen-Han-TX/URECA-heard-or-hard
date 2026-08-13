@@ -1,10 +1,32 @@
-{"id":"e003","condition":"noisy","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"date changed to day but October 17 was preserved"}
-{"id":"e006","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"room changed to ring but the requested value 426 was preserved"}
-{"id":"r001","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"critical numeric condition changed from 3 to 1, changing the correct answer"}
-{"id":"r002","condition":"noisy","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"article substitution did not change the task"}
-{"id":"r003","condition":"noisy","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"grammatical variation did not change the task"}
-{"id":"r006","condition":"noisy","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"article substitution did not change the task"}
-{"id":"r001","condition":"hard","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"if changed to it but critical information remained recoverable"}
-{"id":"r002","condition":"hard","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"departure-time phrasing was degraded but critical values 2 and 3 hours were preserved"}
-{"id":"r004","condition":"hard","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"if changed to is but the arithmetic task remained clear"}
-{"id":"r021","condition":"clean","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"SQ280 was transcribed as SQ218, corrupting the flight relationship and changing the reasoning task"}
+{"id":"r021","condition":"clean","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"SQ280 was transcribed as SQ218, corrupting the flight relationship needed to solve the question"}
+{"id":"e003","condition":"noisy","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"date changed to day but the requested date October 17 was preserved"}
+{"id":"e006","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"room changed to ring but the requested number 426 was preserved"}
+{"id":"e009","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"question wording was corrupted but the requested ticket number 13 was preserved"}
+{"id":"e016","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"reference code B9D31 was changed to B9031"}
+{"id":"e017","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"verification code M6N24 was changed to N6N24"}
+{"id":"e019","condition":"noisy","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"question wording changed slightly but amount 25.70 was preserved"}
+{"id":"e020","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"question wording was corrupted but March 13 was preserved"}
+{"id":"r001","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"critical date condition changed from 3 to 1, changing the correct answer"}
+{"id":"r003","condition":"noisy","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"remain changed to remains without changing the task"}
+{"id":"r004","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"quantity 3 was lost, preventing the original multiplication task from being recovered reliably"}
+{"id":"r006","condition":"noisy","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"article changed from a to the without changing the task"}
+{"id":"r007","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"use 5 was corrupted and the subtraction operation was lost"}
+{"id":"r008","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"wording around use 5 was corrupted but both critical values 50 and 5 and the remain cue were preserved"}
+{"id":"r009","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"3 leave was changed to 3 weeks, removing the subtraction operation"}
+{"id":"r010","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"3 leave was changed to 3 weeks, removing the subtraction operation"}
+{"id":"r015","condition":"noisy","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"article substitution did not change the arithmetic task"}
+{"id":"r016","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"sentence grammar was degraded but price 14.70 and quantity 2 were preserved"}
+{"id":"r018","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"duration phrasing was degraded but start time 4:50 and 30 minutes remained recoverable"}
+{"id":"r020","condition":"noisy","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"article substitution did not change the date reasoning task"}
+{"id":"r021","condition":"noisy","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"if changed to it's but all flight numbers and timing information were preserved"}
+{"id":"r024","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"critical offset 3 was changed to free, preventing the platform calculation"}
+{"id":"e014","condition":"hard","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"flight wording was corrupted but requested flight number SQ280 was preserved"}
+{"id":"e016","condition":"hard","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"reference code B9D31 was changed to B9031"}
+{"id":"r001","condition":"hard","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"if changed to it but the date values and reasoning task were preserved"}
+{"id":"r002","condition":"hard","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"departure-time grammar was degraded but values 2 and 3 hours remained recoverable"}
+{"id":"r004","condition":"hard","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"if changed to is but quantities 1, 4 and 3 remained intact"}
+{"id":"r009","condition":"hard","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"3 leave was changed to 3 weeks, removing the subtraction operation"}
+{"id":"r010","condition":"hard","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"3 leave was changed to 3 leagues, removing the subtraction operation"}
+{"id":"r019","condition":"hard","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"if changed to is but both dates and Monday condition remained intact"}
+{"id":"r020","condition":"hard","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"if changed to is but both dates and Thursday condition remained intact"}
+{"id":"r021","condition":"hard","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"SQ280 was changed to SQ218, corrupting the flight relationship required for reasoning"}
