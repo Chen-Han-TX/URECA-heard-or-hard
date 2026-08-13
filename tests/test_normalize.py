@@ -71,6 +71,20 @@ def main():
         "426",
     )
 
+    check(
+        "27 dollars and 50 cents",
+        "27.50",
+    )
+
+    check(
+        "27 dollars",
+        "27",
+    )
+
+    check(
+        "How many dollars should I transfer, 27 dollars and 50 cents?",
+        "how many dollars should i transfer 27.50",
+    )
     print("All normalization tests passed.")
 
 

@@ -85,6 +85,34 @@ def normalize_money_phrases(text: str) -> str:
       four dollars ninety                  -> 4.90
       four dollars                         -> 4
     """
+    # Case 0:
+    # "27 dollars and 50 cents" -> "27.50"
+    digit_dollars_and_cents_pattern = re.compile(
+        r"\b(\d+)\s+dollars?\s+and\s+(\d+)\s+cents?\b"
+    )
+
+    def replace_digit_dollars_and_cents(match):
+        dollars = int(match.group(1))
+        cents = int(match.group(2))
+
+        if not 0 <= cents <= 99:
+            return match.group(0)
+
+        return f"{dollars}.{cents:02d}"
+
+    text = digit_dollars_and_cents_pattern.sub(
+        replace_digit_dollars_and_cents,
+        text,
+    )
+        # "27 dollars" -> "27"
+    digit_dollars_pattern = re.compile(
+        r"\b(\d+)\s+dollars?\b"
+    )
+
+    text = digit_dollars_pattern.sub(
+        r"\1",
+        text,
+    )
 
     number_pattern = (
         r"(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|"
