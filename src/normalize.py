@@ -169,8 +169,12 @@ def normalize_number_phrases(text: str) -> str:
     """
     Convert continuous English number phrases into digits.
 
-    Example:
+    Examples:
       'four hundred and twenty six' -> '426'
+      'two and arrives'             -> '2 and arrives'
+
+    'and' is treated as part of a number only when it is surrounded
+    by number words.
     """
 
     tokens = text.split()
@@ -194,9 +198,35 @@ def normalize_number_phrases(text: str) -> str:
 
         current_number_tokens = []
 
-    for token in tokens:
-        if token in NUMBER_WORDS:
+    for i, token in enumerate(tokens):
+        if token == "and":
+            previous_is_number = (
+                bool(current_number_tokens)
+            )
+
+            next_is_number = (
+                i + 1 < len(tokens)
+                and tokens[i + 1] in NUMBER_WORDS
+                and tokens[i + 1] != "and"
+            )
+
+            # Only keep "and" inside a number phrase when it connects
+            # two numeric components:
+            #
+            # "four hundred and twenty six"
+            #
+            # but NOT:
+            #
+            # "two and arrives"
+            if previous_is_number and next_is_number:
+                current_number_tokens.append(token)
+            else:
+                flush_number()
+                output.append(token)
+
+        elif token in NUMBER_WORDS:
             current_number_tokens.append(token)
+
         else:
             flush_number()
             output.append(token)
@@ -204,7 +234,6 @@ def normalize_number_phrases(text: str) -> str:
     flush_number()
 
     return " ".join(output)
-
 
 def normalize_text(text: str) -> str:
     text = text.lower()
@@ -229,7 +258,9 @@ def normalize_text(text: str) -> str:
 
     # Remove punctuation, but preserve decimal point.
     text = re.sub(r"[?,!]", " ", text)
-    text = re.sub(r"(?<!\d)\.(?!\d)", " ", text)
+    # Remove periods unless they are decimal points between digits.
+    text = re.sub(r"(?<!\d)\.", " ", text)
+    text = re.sub(r"\.(?!\d)", " ", text)
 
     # Money must be normalized before generic numbers.
     text = normalize_money_phrases(text)

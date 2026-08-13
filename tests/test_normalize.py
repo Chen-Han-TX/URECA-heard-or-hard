@@ -55,6 +55,21 @@ def main():
         "four dollars ninety",
         "4.90",
     )
+    
+    check(
+    "What room number did they give you? 426.",
+    "what room number did they give you 426",
+    )
+
+    check(
+        "If a train leaves at two and arrives three hours later",
+        "if a train leaves at 2 and arrives 3 hours later",
+    )
+
+    check(
+        "four hundred and twenty six",
+        "426",
+    )
 
     print("All normalization tests passed.")
 
