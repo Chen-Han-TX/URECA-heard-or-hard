@@ -4,7 +4,6 @@
 {"id":"e004","category":"entity","text":"What is the flight number SQ218?","gold":"SQ218"}
 {"id":"e005","category":"entity","text":"How many dollars should I transfer, twenty seven dollars and fifty cents?","gold":"27.50"}
 {"id":"e006","category":"entity","text":"What room number did they give you, four hundred and twenty six?","gold":"426"}
-
 {"id":"r001","category":"reason","text":"If Tuesday is the third, what day is the seventeenth?","gold":"Tuesday"}
 {"id":"r002","category":"reason","text":"If a train leaves at two and arrives three hours later, when does it arrive?","gold":"five"}
 {"id":"r003","category":"reason","text":"If you have twelve apples and give away five, how many remain?","gold":"seven"}
