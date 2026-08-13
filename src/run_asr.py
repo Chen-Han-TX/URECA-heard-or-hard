@@ -116,6 +116,7 @@ def main():
             "id": question_id,
             "category": question["category"],
             "condition": condition,
+            "gold": question["gold"],
 
             "reference": reference,
             "transcript": transcript,
