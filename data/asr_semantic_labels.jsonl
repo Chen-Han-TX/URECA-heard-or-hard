@@ -1,5 +1,5 @@
 {"id":"r021","condition":"clean","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"SQ280 was transcribed as SQ218, corrupting the flight relationship needed to solve the question"}
-{"id":"e003","condition":"noisy","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"date changed to day but the requested date October 17 was preserved"}
+{"id":"e003","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"date changed to day, altering what information the user requested even though October 17 was preserved"}
 {"id":"e006","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"room changed to ring but the requested number 426 was preserved"}
 {"id":"e009","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"question wording was corrupted but the requested ticket number 13 was preserved"}
 {"id":"e016","condition":"noisy","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"reference code B9D31 was changed to B9031"}
