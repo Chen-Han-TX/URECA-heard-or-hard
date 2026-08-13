@@ -52,17 +52,8 @@ def main():
 
             label = labels.get(key)
 
-            # Clean audio is treated as having no manually
-            # observed ASR semantic/task-critical failures
-            # in this pilot.
-            if condition == "clean":
-                row["semantic_asr_failure"] = False
-                row["task_critical_asr_failure"] = False
-                row["semantic_failure_reason"] = None
-
-            # We manually annotate every degraded sample
-            # that has a normalized transcription difference.
-            elif label:
+            # Explicit manual annotation always takes priority.
+            if label:
                 row["semantic_asr_failure"] = label[
                     "semantic_asr_failure"
                 ]
@@ -75,19 +66,20 @@ def main():
                     "reason"
                 ]
 
-            # If transcription is equivalent after
-            # normalization, treat it as no ASR failure.
+            # No normalized transcription difference:
+            # treat as no ASR failure.
             elif row["normalized_wer"] == 0:
                 row["semantic_asr_failure"] = False
                 row["task_critical_asr_failure"] = False
                 row["semantic_failure_reason"] = None
 
-            # Any degraded sample with WER > 0 must have
-            # a manual label so we do not silently guess.
+            # Any WER > 0 sample must be manually reviewed.
             else:
                 raise ValueError(
                     f"Missing manual label for "
-                    f"{condition}/{row['id']}"
+                    f"{condition}/{row['id']} "
+                    f"(normalized_wer="
+                    f"{row['normalized_wer']:.3f})"
                 )
 
             rows.append(row)
@@ -97,9 +89,7 @@ def main():
             encoding="utf-8",
         ) as f:
             for row in rows:
-                f.write(
-                    json.dumps(row) + "\n"
-                )
+                f.write(json.dumps(row) + "\n")
 
         semantic_failures = sum(
             row["semantic_asr_failure"]

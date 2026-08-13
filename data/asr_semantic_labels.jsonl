@@ -7,3 +7,4 @@
 {"id":"r001","condition":"hard","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"if changed to it but critical information remained recoverable"}
 {"id":"r002","condition":"hard","semantic_asr_failure":true,"task_critical_asr_failure":false,"reason":"departure-time phrasing was degraded but critical values 2 and 3 hours were preserved"}
 {"id":"r004","condition":"hard","semantic_asr_failure":false,"task_critical_asr_failure":false,"reason":"if changed to is but the arithmetic task remained clear"}
+{"id":"r021","condition":"clean","semantic_asr_failure":true,"task_critical_asr_failure":true,"reason":"SQ280 was transcribed as SQ218, corrupting the flight relationship and changing the reasoning task"}

@@ -62,6 +62,23 @@ ORDINAL_WORDS = {
     "thirtieth": "30",
 }
 
+def normalize_numeric_times(text: str) -> str:
+    time_cues = (
+        "what time",
+        "starts at",
+        "start at",
+        "meeting",
+    )
+
+    if any(cue in text for cue in time_cues):
+        text = re.sub(
+            r"\b(\d{1,2})\.(\d{2})\b",
+            r"\1:\2",
+            text,
+        )
+
+    return text
+
 
 def words_to_number(phrase: str):
     """
@@ -333,6 +350,7 @@ def normalize_text(text: str) -> str:
 
     text = normalize_money_phrases(text)
     text = normalize_time_phrases(text)
+    text = normalize_numeric_times(text)
     text = normalize_number_phrases(text)
 
     # Collapse whitespace.

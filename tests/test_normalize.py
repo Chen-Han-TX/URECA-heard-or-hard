@@ -105,6 +105,16 @@ def main():
         "March thirtieth",
         "march 30",
     )
+    
+    check(
+    "What time is the meeting, 4.15?",
+    "what time is the meeting 4:15",
+)
+
+    check(
+        "If the meeting starts at 4.50 and lasts 30 minutes",
+        "if the meeting starts at 4:50 and lasts 30 minutes",
+    )
     print("All normalization tests passed.")
 
 
